@@ -58,7 +58,7 @@
 		TRACE: 2013/11/07 08:24:32 tracelog.go:149: main : Stop : Started
 		TRACE: 2013/11/07 08:24:32 tracelog.go:156: main : Stop : Completed
 */
-package tracelog
+package log
 
 import (
 	"bytes"
