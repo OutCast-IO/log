@@ -71,7 +71,6 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
-	"sync"
 	"sync/atomic"
 	"text/template"
 	"time"
@@ -100,7 +99,6 @@ type emailConfiguration struct {
 // traceLog provides support to write to log files.
 type traceLog struct {
 	LogLevel           int32
-	Serialize          sync.Mutex
 	EmailConfiguration *emailConfiguration
 	Trace              *log.Logger
 	Info               *log.Logger
