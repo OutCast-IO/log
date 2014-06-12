@@ -1,9 +1,9 @@
 // Copyright 2013 Ardan Studios. All rights reserved.
-// Use of traceLog source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE handle.
 
 /*
-	Package TraceLog implements a logging system to trace all aspect of your code. This is great for task oriented programs.
+	Package log implements a logging system to trace all aspect of your code. This is great for task oriented programs.
 	Based on the Go log standard library. It provides 4 destinations with logging levels plus you can attach a file for persistent
 	writes. A log clean process is provided to maintain disk space. There is also email support to send email alerts.
 
@@ -16,33 +16,33 @@
 
 		import (
 		    "fmt"
-		    "github.com/finapps/tracelog"
+		    "github.com/finapps/log"
 		)
 
 		func main() {
-		    //tracelog.StartFile(tracelog.LEVEL_TRACE, "/Users/bill/Temp/logs", 1)
-		    tracelog.Start(tracelog.LEVEL_TRACE)
+		    //log.StartFile(log.LEVEL_TRACE, "/Users/bill/Temp/logs", 1)
+		    log.Start(log.LEVEL_TRACE)
 
-		    tracelog.TRACE("main", "main", "Hello Trace")
-		    tracelog.INFO("main", "main", "Hello Info")
-		    tracelog.WARN("main", "main", "Hello Warn")
-		    tracelog.ERRORf(fmt.Errorf("Exception At..."), "main", "main", "Hello Error")
+		    log.Trace("main", "main", "Hello Trace")
+		    log.Info("main", "main", "Hello Info")
+		    log.Warning("main", "main", "Hello Warn")
+		    log.Errorf(fmt.Errorf("Exception At..."), "main", "main", "Hello Error")
 
 		    Example()
 
-		    tracelog.Stop()
+		    log.Stop()
 		}
 
 		func Example() {
-		    tracelog.STARTED("main", "Example")
+		    log.Started("main", "Example")
 
 		    err := foo()
 		    if err != nil {
-		        tracelog.COMPLETED_ERROR(err, "main", "Example")
+		        log.CompletedError(err, "main", "Example")
 		        return
 		    }
 
-		    tracelog.COMPLETED("main", "Example")
+		    log.Completed("main", "Example")
 		}
 
 	Output:
